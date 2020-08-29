@@ -6,7 +6,7 @@ const Footer = (props) => {
     
     <footer className="footer" bg="dark">
       <div className="text-center">
-        <p>
+        <p className="p-2">
           &copy; {new Date().getFullYear()} Copyright: Posts
         </p>
       

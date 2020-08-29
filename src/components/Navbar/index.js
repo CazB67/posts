@@ -35,7 +35,7 @@ export function NavLinks(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse  className="justify-content-end">
             <Nav >
-              <Nav.Link style={{color:"white"}} href={"/"}>Settings</Nav.Link>
+              <Nav.Link style={{color:"white"}} href={"/"} onClick={props.onClick}>Settings</Nav.Link>
               <Nav.Link style={{color:"white"}} href={"/"}  onClick={logout}>Logout </Nav.Link> 
             </Nav>
           </Navbar.Collapse>
