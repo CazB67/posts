@@ -8,7 +8,7 @@ export function PostsNav(props) {
 
   return (
     <>
-       <Navbar className="navBar">
+       <Navbar bg="navStyle" expand="lg" className="navBar">
         <Navbar.Brand>
           <img
           src={logo}
