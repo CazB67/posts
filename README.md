@@ -1,3 +1,39 @@
+# Download and Read Posts
+
+## Description 
+![Last Commit](https://img.shields.io/github/last-commit/cazb67/posts) ![Top Language](https://img.shields.io/github/languages/top/cazb67/posts) ![GitHub repo size](https://img.shields.io/github/repo-size/cazb67/posts) 
+
+A React app that allows a user to download and read posts using a JSON from a remote server.
+
+## Table of Contents
+1. [Installation](#Installation)
+2. [Usage](#Usage)
+3. [Credits](#Credits)
+4. [Contributing](#Contributing)
+5. [Licence](#License)
+6. [Create React App Details](#Create-React-App-Details)
+
+## Installation
+- Clone repository
+- `npm install` dependencies
+- npm start
+
+## Usage
+* The URL of the deployed application is https://downloadandreadposts.herokuapp.com/
+
+* The URL of the GitHub repository is https://github.com/CazB67/posts
+
+## Credits
+- Team at UWA Coding Bootcamp
+
+## Contributing
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
+
+## License
+![License](https://img.shields.io/github/license/cazb67/posts) 
+
+## Create React App Details
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
