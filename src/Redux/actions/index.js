@@ -1,6 +1,7 @@
-import { VALIDATE_NAME } from "../constants/action-types";
+import { VALIDATE_NAME, SELECTED_POST } from "../constants/action-types";
 
 export function validateName(payload) {
+  console.log(payload);
   return { type: VALIDATE_NAME, payload };
 }
 
@@ -13,3 +14,9 @@ export function getData() {
         });
     };
   }
+
+export function selectedPost(payload) {
+  console.log(payload);
+  return {type: SELECTED_POST, payload };
+
+}

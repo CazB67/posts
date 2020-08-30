@@ -1,2 +1,3 @@
 export const DATA_LOADED = "DATA_LOADED";
 export const VALIDATE_NAME = "VALIDATE_NAME";
+export const SELECTED_POST = "SELECTED_POST";

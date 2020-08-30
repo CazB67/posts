@@ -20,6 +20,7 @@ function ConnectedForm(props) {
 
   useEffect(() => {
     store.subscribe(() => {
+      console.log(store.getState());
       if(store.getState().name !== "") {
         history.push("/dashboard");
       }

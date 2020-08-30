@@ -1,8 +1,11 @@
-import { VALIDATE_NAME } from "../constants/action-types";
-import { DATA_LOADED } from "../constants/action-types";
+import { DATA_LOADED, SELECTED_POST, VALIDATE_NAME } from "../constants/action-types";
 
 const initialState = {
-  name: ""
+  name: "",
+  posts: [],
+  color: "",
+  isFetchingPosts: false,
+  selectedPost: ""
 };
 
 function rootReducer(state = initialState, action) {
@@ -12,9 +15,15 @@ function rootReducer(state = initialState, action) {
     });
   }
 
+  if (action.type === SELECTED_POST) {
+    return Object.assign({}, state, {
+      selectedPost: action.payload
+    });
+  }
+
   if (action.type === DATA_LOADED) {
     return Object.assign({}, state, {
-      remoteArticles: state.remoteArticles.concat(action.payload)
+      posts: state.posts.concat(action.payload)
     });
   }
   return state;

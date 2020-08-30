@@ -3,6 +3,7 @@ import { VALIDATE_NAME } from "../constants/action-types";
 export function nameValidationMiddleware({ dispatch }) {
   return function(next) {
     return function(action) {
+      console.log(action.payload);
       // do your stuff
       if (action.type === VALIDATE_NAME) {
         // console.log(action.payload.name);
@@ -13,6 +14,7 @@ export function nameValidationMiddleware({ dispatch }) {
         }
         
       }
+      
       return next(action);
     };
   };
