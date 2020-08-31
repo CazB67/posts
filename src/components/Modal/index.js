@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from 'react-bootstrap'
 //import "./style.css";
+
 
 export default function SettingsModal(props) {
     
@@ -12,31 +13,35 @@ export default function SettingsModal(props) {
             </Modal.Header>
 
             <Modal.Body>
-            <Form>
-                <Form.Group controlId="name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type="name" placeholder="Enter name" />
-                </Form.Group>
+                <Form onSubmit={props.onSubmit} className="p-4" style={{backgroundColor: "#DCDCDC", marginLeft: "30pt", marginRight:"30pt"}}>
+                    <Form.Group controlId="formBasicEmail">
+                    <Form.Label className="errorMessage">Name</Form.Label>
+                    <Form.Control name="name" onChange={props.handleChange} className="timer" type="name" placeholder="Enter name"/>
+                    <Form.Text className="text-muted">
+                    Must be 4 or more characters long.
+                    </Form.Text>
+                    </Form.Group>
 
-                <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Color</Form.Label>
                     <Form.Control as="select">
-                    <option>Dark Slate Grey</option>
-                    <option>Midnight Blue</option>
-                    <option>Indigo</option>
-                    <option>Orange</option>
-                    <option>Medium Violet Red</option>
-                    <option>Black</option>
+                    <option value="grey">Dark Slate Grey</option>
+                    <option value="blue">Midnight Blue</option>
+                    <option value="indigo">Indigo</option>
+                    <option value="black">Black</option>
                     </Form.Control>
-                </Form.Group>
-            </Form>
+                    </Form.Group>           
+                </Form>
             </Modal.Body>
-
             <Modal.Footer>
                 <Button variant="dark" onClick={props.onClick}>Cancel</Button>
-                <Button variant="dark">Submit</Button>
+                <Button onClick={props.onSubmit} variant="dark" type="submit" active>
+                    SUBMIT
+                    </Button>
             </Modal.Footer>
          </Modal>
           </>
     );
   }
+
+  

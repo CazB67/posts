@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getData } from "../../Redux/actions/index";
 import { ListGroup, Button, Row, Col } from 'react-bootstrap';
-import { selectedPost } from "../../Redux/actions/index";
 import store from "../../Redux/store";
 
   export function TitleList(props) {
@@ -13,19 +12,19 @@ import store from "../../Redux/store";
     const [postOffset, setPostOffset] = useState(0);
     const [finishedLoading, setFinishedLoading] =useState(false);
 
+    // useEffect(() => {
+    //   setLocalPosts(props.posts.slice(0,10))
+    // },[finishedLoading])
+
     useEffect(() => {
       props.getData()
-      setFinishedLoading(true)
       store.subscribe(() => {
         console.log("store.getState()");
       });
 
     },[])
 
-    useEffect(() => {
-      setLocalPosts(props.posts.slice(0,10))
-    },[finishedLoading])
-
+    
     function handleClick(event) {
       event.preventDefault();
       setTitle(event.target.getAttribute("value").toUpperCase())
@@ -60,9 +59,8 @@ import store from "../../Redux/store";
     }
   
   function mapStateToProps(state) {
-    console.log();
     return {
-      posts: state.posts
+      posts: state.posts.slice(0,10)
     };
   }
 

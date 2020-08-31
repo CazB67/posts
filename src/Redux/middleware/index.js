@@ -14,7 +14,6 @@ export function nameValidationMiddleware({ dispatch }) {
         }
         
       }
-      
       return next(action);
     };
   };
