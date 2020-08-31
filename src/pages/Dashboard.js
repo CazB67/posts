@@ -4,22 +4,32 @@ import Footer from "../components/Footer";
 import SettingsModal from "../components/Modal";
 import TitleList from "../components/TitleList";
 import { connect } from "react-redux";
-import { validateName } from "../Redux/actions/index";
+import { validateName, chooseColor } from "../Redux/actions/index";
 
 function mapDispatchToProps(dispatch) {
     return {
-      validateName: name => dispatch(validateName(name))
+      validateName: name => dispatch(validateName(name)),
+      chooseColor: color => dispatch(chooseColor(color))
     };
   }
 
 function MainPage(props) {
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
+  const [themeColor, setThemeColor] = useState("grey")
+  const [themeColorHolding, setThemeColorHolding] = useState("grey")
+
+  function onChangeColor(event) {
+    event.preventDefault()
+    console.log(event.target.value);
+    setThemeColorHolding(event.target.value)
+  }
 
   const onSubmit = async (event) => {
     event.preventDefault();
     props.validateName( {name})
     setShow(false)
+    setThemeColor(themeColorHolding)
   }
 
   const handleChange = async (event) => {
@@ -33,6 +43,7 @@ function MainPage(props) {
     event.preventDefault();
     setShow(true);
   }
+
     return (
       <>
       <SettingsModal
@@ -41,8 +52,10 @@ function MainPage(props) {
       onClick={handleClose}
       onSubmit={onSubmit}
       handleChange={handleChange}
+      onChange={onChangeColor}
       />
-      <PostsNav>
+      <PostsNav
+        color={themeColor}>
         <NavLinks
           onClick={handleModal}/>
       </PostsNav>

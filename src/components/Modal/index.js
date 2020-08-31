@@ -24,7 +24,7 @@ export default function SettingsModal(props) {
 
                     <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Color</Form.Label>
-                    <Form.Control as="select">
+                    <Form.Control onChange={props.onChange} as="select">
                     <option value="grey">Dark Slate Grey</option>
                     <option value="blue">Midnight Blue</option>
                     <option value="indigo">Indigo</option>

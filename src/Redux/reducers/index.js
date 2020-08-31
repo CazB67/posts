@@ -3,7 +3,7 @@ import { DATA_LOADED, USER_LOGOUT, VALIDATE_NAME, CHOOSE_COLOR } from "../consta
 const initialState = {
   name: "",
   posts: [],
-  color: "",
+  color: "grey",
   isFetchingPosts: false,
   selectedPost: ""
 };

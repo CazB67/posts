@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "../../App.css";
 import { Navbar, Nav } from 'react-bootstrap';
 import logo from '../../images/logo.PNG';
 import store from "../../Redux/store";
@@ -9,7 +9,7 @@ export function PostsNav(props) {
   
   return (
     <>
-       <Navbar bg="navStyle" expand="lg" className="navBar">
+       <Navbar expand="lg" className={props.color}>
         <Navbar.Brand>
           <img
           src={logo}
