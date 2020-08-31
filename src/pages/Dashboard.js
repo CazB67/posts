@@ -19,11 +19,16 @@ function MainPage(props) {
   const [name, setName] = useState("");
   const [themeColorHolding, setThemeColorHolding] = useState("")
   const [themeColorStore, setThemeColorStore] = useState("")
+  const [nameStore, setNameStore] = useState()
 
   useEffect(() => {
     store.dispatch( chooseColor({ color: "grey" }))
-    store.subscribe(() =>
-    setThemeColorStore(store.getState().color.color))
+
+    store.subscribe(() => {
+      setThemeColorStore(store.getState().color.color)
+      setNameStore(store.getState().name.name)
+    })
+
   },[]);
 
   function onChangeColor(event) {
@@ -69,7 +74,9 @@ function MainPage(props) {
       </PostsNav>
       <TitleList/>
       
-      <Footer/>
+      <Footer
+        color={themeColorStore}
+        name={nameStore}/>
       </>
     );
   }

@@ -8,9 +8,6 @@ import store from "../../Redux/store";
     
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
-    const [localPosts, setLocalPosts] = useState([]);
-    const [postOffset, setPostOffset] = useState(0);
-    const [finishedLoading, setFinishedLoading] =useState(false);
 
     // useEffect(() => {
     //   setLocalPosts(props.posts.slice(0,10))
@@ -24,7 +21,6 @@ import store from "../../Redux/store";
 
     },[])
 
-    
     function handleClick(event) {
       event.preventDefault();
       setTitle(event.target.getAttribute("value").toUpperCase())

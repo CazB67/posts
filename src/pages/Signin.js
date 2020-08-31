@@ -5,13 +5,13 @@ import Footer from "../components/Footer";
 import { Container } from 'react-bootstrap'
 
 function Signin() {
-  const [themeColor, setThemeColor] = useState("grey")
+  
 
     return (
       <>
       <Container>
         <PostsNav
-          color={themeColor}/>
+          color="grey"/>
           <SigninForm/>
           <Footer/>
       </Container>
