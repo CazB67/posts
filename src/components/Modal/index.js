@@ -1,7 +1,5 @@
 import React from "react";
 import { Modal, Button, Form } from 'react-bootstrap'
-//import "./style.css";
-
 
 export default function SettingsModal(props) {
     

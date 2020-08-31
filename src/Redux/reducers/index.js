@@ -9,9 +9,7 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  console.log(action);
-
-
+  
   if (action.type === VALIDATE_NAME) {
     return Object.assign({}, state, {
       name: action.payload

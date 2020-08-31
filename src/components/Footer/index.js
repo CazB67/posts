@@ -1,6 +1,5 @@
 import React from "react";
 import "../../App.css";
-import { connect } from "react-redux";
 
 export default function Footer(props) {
   return (
