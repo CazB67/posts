@@ -6,6 +6,7 @@ import TitleList from "../components/TitleList";
 import { connect } from "react-redux";
 import { validateName, chooseColor } from "../Redux/actions/index";
 import store from "../Redux/store";
+import { useHistory } from "react-router-dom";
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -15,6 +16,7 @@ function mapDispatchToProps(dispatch) {
   }
 
 function MainPage(props) {
+  const history = useHistory()
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
   const [themeColorHolding, setThemeColorHolding] = useState("")
@@ -22,6 +24,10 @@ function MainPage(props) {
   const [nameStore, setNameStore] = useState()
 
   useEffect(() => {
+    console.log(store.getState());
+    if(store.getState().name === "") {
+      return history.push('/')
+    }
     store.dispatch( chooseColor({ color: "grey" }))
 
     store.subscribe(() => {

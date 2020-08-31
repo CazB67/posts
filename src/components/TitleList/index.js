@@ -7,10 +7,13 @@ import { ListGroup, Button, Row, Col } from 'react-bootstrap';
     
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
+    const [firstPost, setFirstPost] = useState(0);
+    const [lastPost, setLastPost] = useState(10);
 
     useEffect(() => {
       props.getData()
-
+      setFirstPost(0)
+      setLastPost(10)
     },[])
 
     function handleClick(event) {
@@ -19,17 +22,23 @@ import { ListGroup, Button, Row, Col } from 'react-bootstrap';
       setBody(event.target.getAttribute("body"))
     }
 
+    function loadMore(event) {
+      event.preventDefault();
+      setFirstPost(firstPost + 10)
+      setLastPost(lastPost + 10)
+    }
+
       return (
         <>
         <Row>
         <Col md="4">
           <ListGroup>
-          {props.posts.map(el => (
+          {props.posts.slice(firstPost,lastPost).map(el => (
             <ListGroup.Item onClick={handleClick} body={el.body} value={el.title} key={el.id}>{el.title.toUpperCase()}</ListGroup.Item>
           ))}
           </ListGroup>
         <div className="text-center mt-2">
-          <Button variant="dark" type="load" active>
+          <Button onClick={loadMore} variant="dark" type="load" active>
           LOAD MORE
           </Button>
         </div>
@@ -39,15 +48,13 @@ import { ListGroup, Button, Row, Col } from 'react-bootstrap';
           <p className="mt-3">{body}</p>
         </Col>
         </Row>
-        
-        
         </>
       );
     }
   
   function mapStateToProps(state) {
     return {
-      posts: state.posts.slice(0,10)
+      posts: state.posts
     };
   }
 

@@ -13,7 +13,8 @@ function Signin() {
         <PostsNav
           color="grey"/>
           <SigninForm/>
-          <Footer/>
+          <Footer
+            color="grey"/>
       </Container>
       </>
     );

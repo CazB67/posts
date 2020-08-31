@@ -4,8 +4,7 @@ const initialState = {
   name: "",
   posts: [],
   color: "grey",
-  isFetchingPosts: false,
-  selectedPost: ""
+  isFetchingPosts: false
 };
 
 function rootReducer(state = initialState, action) {
