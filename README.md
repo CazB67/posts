@@ -8,10 +8,9 @@ A React app that allows a user to download and read posts using a JSON from a re
 ## Table of Contents
 1. [Installation](#Installation)
 2. [Usage](#Usage)
-3. [Credits](#Credits)
-4. [Contributing](#Contributing)
-5. [Licence](#License)
-6. [Create React App Details](#Create-React-App-Details)
+3. [Contributing](#Contributing)
+4. [Licence](#License)
+5. [Create React App Details](#Create-React-App-Details)
 
 ## Installation
 - Clone repository
@@ -22,9 +21,6 @@ A React app that allows a user to download and read posts using a JSON from a re
 * The URL of the deployed application is https://downloadandreadposts.herokuapp.com/
 
 * The URL of the GitHub repository is https://github.com/CazB67/posts
-
-## Credits
-- Team at UWA Coding Bootcamp
 
 ## Contributing
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
