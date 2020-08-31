@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { PostsNav, NavLinks } from "../components/Navbar";
 import Footer from "../components/Footer";
 import SettingsModal from "../components/Modal";
 import TitleList from "../components/TitleList";
 import { connect } from "react-redux";
 import { validateName, chooseColor } from "../Redux/actions/index";
+import store from "../Redux/store";
 
 function mapDispatchToProps(dispatch) {
     return {
@@ -16,8 +17,14 @@ function mapDispatchToProps(dispatch) {
 function MainPage(props) {
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
-  const [themeColor, setThemeColor] = useState("grey")
-  const [themeColorHolding, setThemeColorHolding] = useState("grey")
+  const [themeColorHolding, setThemeColorHolding] = useState("")
+  const [themeColorStore, setThemeColorStore] = useState("")
+
+  useEffect(() => {
+    store.dispatch( chooseColor({ color: "grey" }))
+    store.subscribe(() =>
+    setThemeColorStore(store.getState().color.color))
+  },[]);
 
   function onChangeColor(event) {
     event.preventDefault()
@@ -29,7 +36,8 @@ function MainPage(props) {
     event.preventDefault();
     props.validateName( {name})
     setShow(false)
-    setThemeColor(themeColorHolding)
+    setThemeColorStore(themeColorHolding)
+    store.dispatch( chooseColor({ color: themeColorHolding }) );
   }
 
   const handleChange = async (event) => {
@@ -55,7 +63,7 @@ function MainPage(props) {
       onChange={onChangeColor}
       />
       <PostsNav
-        color={themeColor}>
+        color={themeColorStore}>
         <NavLinks
           onClick={handleModal}/>
       </PostsNav>

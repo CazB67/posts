@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 const FooterName = ({namex}) => {
   return (
     
-    <footer className="footer" bg="dark">
+    <footer className="footer">
       <div className="text-center">
   
         <p className="p-2">
