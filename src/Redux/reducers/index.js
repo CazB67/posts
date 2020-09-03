@@ -1,4 +1,4 @@
-import { DATA_LOADED, USER_LOGOUT, VALIDATE_NAME, CHOOSE_COLOR } from "../constants/action-types";
+import { DATA_LOADED, USER_LOGOUT, VALIDATE_NAME, CHOOSE_COLOR, LOADING_POSTS } from "../constants/action-types";
 
 const initialState = {
   name: "",
@@ -8,12 +8,20 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
+  console.log(action.type);
   
   if (action.type === VALIDATE_NAME) {
     return Object.assign({}, state, {
       name: action.payload
     });
   }
+
+  if (action.type === LOADING_POSTS) {
+    return Object.assign({}, state, {
+      isFetchingPosts: action.payload
+    });
+  }
+
 
   if (action.type === USER_LOGOUT) {
     return Object.assign({}, state, {
@@ -28,6 +36,7 @@ function rootReducer(state = initialState, action) {
   }
 
   if (action.type === DATA_LOADED) {
+    console.log("data loaded" + action.payload);
     return Object.assign({}, state, {
       posts: state.posts.concat(action.payload)
     });

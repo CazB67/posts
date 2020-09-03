@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getData } from "../../Redux/actions/index";
 import { ListGroup, Button, Row, Col } from 'react-bootstrap';
+import store from "../../Redux/store";
 
   export function TitleList(props) {
     
@@ -9,6 +10,7 @@ import { ListGroup, Button, Row, Col } from 'react-bootstrap';
     const [body, setBody] = useState("");
     const [firstPost, setFirstPost] = useState(0);
     const [lastPost, setLastPost] = useState(10);
+    
 
     useEffect(() => {
       props.getData()
@@ -28,7 +30,7 @@ import { ListGroup, Button, Row, Col } from 'react-bootstrap';
       setLastPost(lastPost + 10)
     }
 
-      return (
+      return ( 
         <>
         <Row>
         <Col md="4">
@@ -48,7 +50,7 @@ import { ListGroup, Button, Row, Col } from 'react-bootstrap';
           <p className="mt-3">{body}</p>
         </Col>
         </Row>
-        </>
+          </> 
       );
     }
   
